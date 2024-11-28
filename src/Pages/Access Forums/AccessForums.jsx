@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { FaCamera, FaSearch } from "react-icons/fa"; // Importing the search icon
-import "./AccessForums.css"; // Include the styles here
-import { FaViadeo } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
+import EmojiPicker from "emoji-picker-react";
+import "./AccessForums.css";
 
 const AccessForums = () => {
   const [chats] = useState([
@@ -21,17 +21,18 @@ const AccessForums = () => {
       name: "Elizabeth Sarah",
       time: "10:27",
       lastMessage: "Thank you for your order!",
+      done:"src/Images/done.png",
       avatar: "src/Images/profileImg.png",
-      done: "src/Images/done.png",
-
       messages: [
         { sender: "Elizabeth", text: "Thanks for your help!", time: "9:20" },
       ],
-    },{
+    },
+    {
       id: 3,
-      name: "Jenny Willson" ,
+      name: "Jenny Willson",
       time: "7:00",
       lastMessage: "Hello there!",
+      totalchat:"src/Images/chatnumber.png",
       avatar: "src/Images/profileImg.png",
       messages: [
         { sender: "Elizabeth", text: "Thanks for your help!", time: "9:20" },
@@ -42,13 +43,81 @@ const AccessForums = () => {
   const [selectedChat, setSelectedChat] = useState(chats[0]);
   const [newMessage, setNewMessage] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [showPopover, setShowPopover] = useState(false);
+  const [forwardMode, setForwardMode] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [mediaRecorder, setMediaRecorder] = useState(null);
 
-  // Handle selecting a chat
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
+const toggleSidebar = () => {
+  setSidebarVisible(!sidebarVisible);
+};
+
+  const handleFileUpload = (file) => {
+    if (!file) return;
+  
+    // Create a temporary URL for the file
+    const fileURL = URL.createObjectURL(file);
+  
+    // Check if the file is an image
+    const isImage = file.type.startsWith("image/");
+  
+    const updatedChat = {
+      ...selectedChat,
+      messages: [
+        ...selectedChat.messages,
+        {
+          sender: "You",
+          text: isImage ? null : `📎 ${file.name}`,
+          fileURL: fileURL, // Add the file URL
+          isImage: isImage, // Indicate if it's an image
+          time: new Date().toLocaleTimeString(),
+        },
+      ],
+    };
+    setSelectedChat(updatedChat);
+  };
+  
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+  
+      recorder.ondataavailable = (event) => {
+        const audioURL = URL.createObjectURL(event.data);
+        const updatedChat = {
+          ...selectedChat,
+          messages: [
+            ...selectedChat.messages,
+            { sender: "You", text: "🎤 Voice Message", audio: audioURL, time: new Date().toLocaleTimeString() },
+          ],
+        };
+        setSelectedChat(updatedChat);
+      };
+  
+      recorder.start();
+      setMediaRecorder(recorder);
+      setIsRecording(true);
+    } catch (err) {
+      console.error("Error accessing microphone:", err);
+    }
+  };
+  
+  const stopRecording = () => {
+    if (mediaRecorder) {
+      mediaRecorder.stop();
+      setIsRecording(false);
+    }
+  };
+  
+
+
   const handleChatClick = (chat) => {
     setSelectedChat(chat);
   };
 
-  // Handle sending a new message
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
     const updatedChat = {
@@ -62,84 +131,159 @@ const AccessForums = () => {
     setNewMessage("");
   };
 
-  // Handle resizing for mobile responsiveness
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSendMessage();
+    }
+  };
+
+  const handleEmojiClick = (emoji) => {
+    setNewMessage((prev) => prev + emoji.emoji);
+  };
+
   window.onresize = () => {
     setIsMobile(window.innerWidth < 768);
   };
 
   return (
     <div className="chat-app container-fluid rounded">
-      {/* Sidebar */}
-      <div className={`chat-sidebar ${isMobile && !selectedChat ? "hidden" : ""}`}>
-        <h4 className="text-dark">Chat</h4>
-        <div className="search-bar-container">
-          <FaSearch className="search-icon" />
-          <input type="text" placeholder="Search Here" className="search-bar " />
-        </div>
-        <ul className="chat-list">
-          {chats.map((chat) => (
-            <li
-              key={chat.id}
-              className={`chat-item ${selectedChat.id === chat.id ? "active" : ""}`}
-              onClick={() => handleChatClick(chat)}
-            >
-              <img src={chat.avatar} alt={chat.name} className="avatar" />
-              <div className="chat-info">
-                <h5>{chat.name}</h5>
-                <p>{chat.lastMessage}</p>
-              </div>
-              <span className="time">{chat.time}</span>
-              <img src={chat.done} alt="" />
-            </li>
-          ))}
-        </ul>
-      </div>
+  {/* Top Bar (only on mobile) */}
+  <div className="top-bar d-block d-sm-none">
+    <div className="menu-icon" onClick={toggleSidebar}>
+      &#9776; {/* Hamburger icon */}
+    </div>
+    <h5>Chat</h5>
+  </div>
 
-      {/* Chat Window */}
-      <div className={`chat-window ${isMobile && selectedChat ? "expanded" : ""}`}>
-        <div className="chat-header d-flex align-items-center">
-          <div className="chat-info d-flex align-items-center" >
-<div>
-  
-          <img src={selectedChat.avatar} alt={selectedChat.name} className="avatar" />
-</div>
-<div>
+  {/* Sidebar */}
+  <div className={`chat-sidebar ${sidebarVisible ? "show" : ""}`}>
+    <h5 className="text-dark">Chat</h5>
+    <div className="search-bar-container">
+      <img src="src/Images/search.png" className="search-icon text-dark" alt="Search" />
+      <input type="text" placeholder="Search Here" className="search-bar border-0" />
+    </div>
+    <ul className="chat-list">
+      {chats.map((chat) => (
+        <li
+          key={chat.id}
+          className={`chat-item ${selectedChat.id === chat.id ? "active" : ""}`}
+          onClick={() => handleChatClick(chat)}
+        >
+          <img src={chat.avatar} alt={chat.name} className="avatar" />
+          <div className="chat-info">
+            <h5>{chat.name}</h5>
+            <p>{chat.lastMessage}</p>
+          </div>
+          <div>
+            <p className="time">{chat.time}</p>
+            <span>{chat.done && <img src={chat.done} alt="Done" className="done" />} </span>
+            <span>{chat.totalchat && <img src={chat.totalchat} alt="Unread" className="unread" />}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
 
+  {/* Chat Window */}
+  <div className={`chat-window ${isMobile && sidebarVisible ? "expanded" : ""}`}>
+    <div className="chat-header d-flex align-items-center">
+      <div className="chat-info d-flex align-items-center">
+        <img src={selectedChat.avatar} alt={selectedChat.name} className="avatar" />
+        <div>
           <h5>{selectedChat.name}</h5>
-        <span>{selectedChat.time}</span>
-</div>
-          </div>
-          <div className="chat-options d-flex  gaalign-items-center justify-content-end">
-           <img src="src/Images/video.png" role="button" alt="" />
-            <img src="src/Images/call.png" role="button" alt="" />
-            <img src="src/Images/more.png" role="button" alt="" />
-          </div>
+          <span>{selectedChat.time}</span>
         </div>
-
-        <div className="messages">
-          {selectedChat.messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`message ${msg.sender === "You" ? "sent" : "received"}`}
+      </div>
+      <div className="chat-options d-flex gap-2 align-items-center justify-content-end">
+        <img src="src/Images/video.png" role="button" alt="Video Call" />
+        <img src="src/Images/call.png" role="button" alt="Audio Call" />
+        <img
+          src="src/Images/more.png"
+          role="button"
+          alt="More Options"
+          onClick={() => setShowPopover(!showPopover)}
+        />
+        {showPopover && (
+          <div className="popover">
+            <button
+              onClick={() =>
+                navigator.clipboard.writeText(
+                  selectedChat.messages.map((msg) => msg.text).join("\n")
+                )
+              }
             >
-              <p>{msg.text}</p>
-              <span className="time">{msg.time}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Input Area */}
-        <div className="message-input">
-          <input
-            type="text"
-            placeholder="Type a message"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          />
-          <button onClick={handleSendMessage}>Send</button>
-        </div>
+              Copy
+            </button>
+            <button onClick={() => setForwardMode(true)}>Forward</button>
+          </div>
+        )}
       </div>
     </div>
+
+    {/* Chat Messages */}
+    <div className="messages">
+      {selectedChat.messages.map((msg, index) => (
+        <div key={index} className={`message ${msg.sender === "You" ? "sent" : "received"}`}>
+          {msg.isImage ? (
+            <img src={msg.fileURL} alt="Uploaded" className="chat-image" />
+          ) : msg.fileURL ? (
+            <a href={msg.fileURL} download={msg.text}>
+              {msg.text}
+            </a>
+          ) : (
+            <p>{msg.text}</p>
+          )}
+          <span className="time">{msg.time}</span>
+        </div>
+      ))}
+    </div>
+
+    {/* Message Input */}
+    <div className="bg-white d-flex align-items-center">
+      <div className="message-input mb-2 shadow d-flex gap-2">
+        <img
+          src="src/Images/smiley.png"
+          onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+          alt="Emoji Picker"
+        />
+        {showEmojiPicker && (
+          <div className="emoji-picker">
+            <EmojiPicker onEmojiClick={handleEmojiClick} />
+          </div>
+        )}
+        <input
+          className="border-0"
+          type="text"
+          placeholder="Type a message"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+        <input
+          type="file"
+          id="fileInput"
+          style={{ display: "none" }}
+          onChange={(e) => handleFileUpload(e.target.files[0])}
+        />
+        <img
+          src="src/Images/Paperclip.png"
+          role="button"
+          alt=""
+          onClick={() => document.getElementById("fileInput").click()}
+        />
+        <img src="src/Images/camera.png" role="button" alt="Camera" />
+      </div>
+      <img
+        src="src/Images/voice.png"
+        role="button"
+        style={{ width: "60px", height: "60px" }}
+        alt="Voice Message"
+        onClick={() => (isRecording ? stopRecording() : startRecording())}
+      />
+    </div>
+  </div>
+</div>
+
   );
 };
 

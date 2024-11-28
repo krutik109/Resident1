@@ -1,3 +1,104 @@
+.chat-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin: 5px 0;
+  object-fit: cover;
+}
+.image{
+ display: none;
+}
+
+
+.popover {
+  position: absolute;
+
+top:160px;
+  right: 50px;
+  
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.popover button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.popover button:hover {
+  background-color: #f5f5f5;
+}
+
+.file-voice-options {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.file-icon,
+.voice-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+.emoji-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.message-input {
+
+  border-radius: 60px;
+border: none;
+width: 95%;
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 50px; /* Fix input height */
+}
+
+.emoji-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  color: #999;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 110px; /* Adjust to prevent overlap with the input */
+
+  left: 100;
+
+  z-index: 1000;
+  max-height: 300px; /* Fix the emoji picker height */
+  overflow-y: auto; /* Add scrolling if emojis overflow */
+  box-shadow: 0px 4px 6px rgba(196, 11, 11, 0.1);
+  border-radius: 8px;
+  background: white;
+}
+
+
 .chat-app {
   display: flex;
   height: 85vh;
@@ -26,15 +127,16 @@ font-style: poppins;
 
 .search-bar {
   width: 80%;
-  margin-left: 20px;
+  margin-left:20px;
   padding: 10px 10px 10px 30px; /* Adjusted padding for the icon on the left */
-  border: 1px solid #ddd;
+background-color:#f6f8fb;
   border-radius: 10px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-icon {
   position: absolute;
-  left: 30px;
+  left: 25px;
   top: 50%;
   transform: translateY(-50%);
   color: #999;
@@ -154,36 +256,54 @@ font-style: poppins;
   border-radius: 5px;
 }
 
-.message-input button {
-  margin-left: 10px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-.message-input button:hover {
-  background: #0056b3;
-}
 
-/* Mobile Responsiveness */
+
+
+/* Additional styles for mobile responsiveness */
 @media (max-width: 768px) {
-  .chat-app {
-    flex-direction: column;
-  }
-
   .chat-sidebar {
-    width: 100%;
-    display: none; /* Hidden by default */
+    display: none; /* Hide sidebar by default on mobile */
   }
+  
 
-  .chat-sidebar.hidden {
-    display: block; /* Shown when no chat is selected */
+  .chat-sidebar.show {
+    display: block; /* Show sidebar when 'show' class is added */
   }
 
   .chat-window.expanded {
-    width: 100%;
+    width: 90%;
+    
+  }
+
+  .chat-header .avatar {
+    display: none; /* Hide avatar on mobile */
+  }
+
+  .chat-header h5 {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .chat-header {
+    border-radius: 0;
+  }
+
+.chat-sidebar{
+  width: 100%;
+}
+.top-bar{
+  position: absolute;
+top: 0;
+right: 0;
+}
+
+  .top-bar .menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .search-bar-container {
+    margin-left: 10px;
   }
 }
