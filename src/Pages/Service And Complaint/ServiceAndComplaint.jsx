@@ -10,11 +10,11 @@ function ServiceAndComplaint() {
     };
 
     return (
-        <div className="container-fluid p-4" style={{ backgroundColor: '#F4F6F8' }}>
+        <div className="container-fluid p-4 col-12 " style={{ backgroundColor: '#F4F6F8' }}>
 
             {/* Tabs Section */}
             <div className=" mt-3">
-                <ul className="nav nav-tabs  border-0">
+                <ul className="nav  d-flex   border-0">
                     <li className="nav-item">
                         <button
                             className={`nav-link ${activeTab === 'Complaint' ? 'active' : ''}`}
@@ -25,7 +25,9 @@ function ServiceAndComplaint() {
                                 borderTopLeftRadius: '8px',
                                 borderTopRightRadius: '8px',
                                 border: 'none',
-                                padding: '10px'
+                                padding: '10px 10px',
+                                fontSize: '14px',
+                               
                             }}
                         >
                             Complaint Submission
@@ -41,7 +43,9 @@ function ServiceAndComplaint() {
                                 borderTopLeftRadius: '8px',
                                 borderTopRightRadius: '8px',
                                 border: 'none',
-                                padding: '10px 20px'
+                                padding: '10px 10px',
+                                fontSize: '14px',
+                              
                             }}
                         >  Request Submission
                         </button>
@@ -124,7 +128,7 @@ const ComplaintSubmission = () => {
         <div className="container-fluid pt-3 mt-3">
             <div className="d-flex justify-content-between align-items-center mb-3">
                 <h2 style={{ fontSize: "20px" }}>Complaint</h2>
-                <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+                <button className="btn btn-primary  " style={{ fontSize: "14px" }} onClick={() => setShowModal(true)}>
                     Create Complaint
                 </button>
             </div>
@@ -215,7 +219,7 @@ const ComplaintSubmission = () => {
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content" style={{ maxWidth: "400px" }}>
                                 <div className="modal-header">
-                                    <h5 className="modal-title">Create Complaint</h5>
+                                    <h5 className="modal-title d-n">Create Complaint</h5>
                                     <button
                                         type="button"
                                         className="btn-close"

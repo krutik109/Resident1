@@ -10,7 +10,7 @@
     position: relative;
     height: 90px;
   }
-  
+ 
   .balance-card::before {
     content: '';
     position: absolute;
