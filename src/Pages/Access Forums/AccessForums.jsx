@@ -7,6 +7,17 @@ const AccessForums = () => {
   const [chats] = useState([
     {
       id: 1,
+      name: "Jenny Willson",
+      time: "7:00",
+      lastMessage: "Hello there!",
+      totalchat:"src/Images/chatnumber.png",
+      avatar: "src/Images/profileImg.png",
+      messages: [
+        { sender: "Elizabeth", text: "Thanks for your help!", time: "9:20" },
+      ],
+    },
+    {
+      id: 2,
       name: "Michael John",
       time: "10:27",
       lastMessage: "Hi, John! How are you doing?",
@@ -17,7 +28,7 @@ const AccessForums = () => {
       ],
     },
     {
-      id: 2,
+      id: 3,
       name: "Elizabeth Sarah",
       time: "10:27",
       lastMessage: "Thank you for your order!",
@@ -28,7 +39,7 @@ const AccessForums = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       name: "Jenny Willson",
       time: "7:00",
       lastMessage: "Hello there!",
@@ -38,6 +49,18 @@ const AccessForums = () => {
         { sender: "Elizabeth", text: "Thanks for your help!", time: "9:20" },
       ],
     },
+    {
+      id: 5,
+      name: "Jenny Willson",
+      time: "7:00",
+      lastMessage: "Hello there!",
+      totalchat:"src/Images/chatnumber.png",
+      avatar: "src/Images/profileImg.png",
+      messages: [
+        { sender: "Elizabeth", text: "Thanks for your help!", time: "9:20" },
+      ],
+    },
+ 
   ]);
 
   const [selectedChat, setSelectedChat] = useState(chats[0]);
@@ -156,7 +179,7 @@ const toggleSidebar = () => {
   </div>
 
   {/* Sidebar */}
-  <div className={`chat-sidebar ${sidebarVisible ? "show" : ""}`}>
+  <div className={`chat-sidebar p-3 ${sidebarVisible ? "show" : ""}`}>
     <h5 className="text-dark">Chat</h5>
     <div className="search-bar-container">
       <img src="src/Images/search.png" className="search-icon text-dark" alt="Search" />

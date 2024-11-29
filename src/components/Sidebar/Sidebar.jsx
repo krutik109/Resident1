@@ -83,7 +83,10 @@ const Sidebar = ({ toggleSidebar }) => {
               <NavLink  className="text-decoration-none font_color" to="/pollapp" onClick={toggleSidebar}>
                 <p className="p-3 sub-link">Polls</p>
               </NavLink>
-              <NavLink className="text-decoration-none font_color" to="/" onClick={toggleSidebar}>
+              {/* <NavLink className="text-decoration-none font_color" to="/Communication" onClick={toggleSidebar}>
+                <p className="p-3 sub-link">Communication Discussion</p>
+              </NavLink> */}
+              <NavLink className="text-decoration-none font_color" to="/cd" onClick={toggleSidebar}>
                 <p className="p-3 sub-link">Communication Discussion</p>
               </NavLink>
             </div>

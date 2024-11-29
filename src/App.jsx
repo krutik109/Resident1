@@ -19,6 +19,9 @@ import MaintenanceInvoices from "./Pages/Maintanance Invoice/MaintananceInvoice"
 import Invoices from "./Pages/Invoices/Invoices";
 import OtherIncomeInvoice from "./Pages/Other Income Invoices/OtherIncomeInvoice";
 import AccessForums from "./Pages/Access Forums/AccessForums";
+import Communication from "./Pages/Communication Discution/Communication";
+import Community from "./Pages/c d/cd";
+import CommunityQuestion from "./Pages/c d/CommunityQuestion";
 
 
 const App = () => {
@@ -78,6 +81,19 @@ const App = () => {
           {
             path: "/AccessForums",
             element: <AccessForums />,
+          },
+          {
+            path: "Communication",
+            element: <Communication />,
+          }
+          ,
+          {
+            path: "cd",
+            element: <Community/>,
+          },
+          {
+            path: "/Community-Question",
+            element: <CommunityQuestion />,
           }
 
         ],
