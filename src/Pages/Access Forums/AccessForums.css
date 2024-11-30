@@ -68,7 +68,7 @@ top:160px;
 
   border-radius: 60px;
 border: none;
-width: 95%;
+max-width: 95%;
   font-size: 16px;
   box-sizing: border-box;
   height: 50px; /* Fix input height */
@@ -101,7 +101,7 @@ width: 95%;
 
 .chat-app {
   display: flex;
-  height: 85vh;
+  max-height: 85vh;
 font-style: poppins;
 }
 
@@ -115,9 +115,7 @@ font-style: poppins;
   display: block;
 }
 
-.chat-sidebar.hidden {
-  display: none;
-}
+
 
 .search-bar-container {
   position: relative;
@@ -194,7 +192,8 @@ background-color:#f6f8fb;
 }
 
 .chat-header {
-  display: flex;border-radius: 0 10px 0 0;
+  display: flex;
+  border-radius: 0 10px 0 0;
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
@@ -258,52 +257,42 @@ background-color:#f6f8fb;
 
 
 
+@media (min-width: 350px) and (max-width: 768px) {
+ .chat-sidebar{
+  position: absolute;
+  max-width: 100%;
 
+ }
+ .chat-app img{
+width: 34px;
+ }
+ .menu-icon{
+  position: absolute;
+  
+}
+.chat-app img{
+
+  width: 20px;
+}
+.avatar{
+  display: block;
+}
+  /* .chat-app{
+    position: relative;
+    padding: 0;
+   
+  }
+
+  .chat-options img
+  {
+    display: none;
+
+  }
+  .imginput{
+    display: none;
+    
+  } */
+
+}
 
 /* Additional styles for mobile responsiveness */
-@media (max-width: 768px) {
-  .chat-sidebar {
-    display: none; /* Hide sidebar by default on mobile */
-  }
-  
-
-  .chat-sidebar.show {
-    display: block; /* Show sidebar when 'show' class is added */
-  }
-
-  .chat-window.expanded {
-    width: 90%;
-    
-  }
-
-  .chat-header .avatar {
-    display: none; /* Hide avatar on mobile */
-  }
-
-  .chat-header h5 {
-    font-size: 18px;
-    margin-left: 10px;
-  }
-
-  .chat-header {
-    border-radius: 0;
-  }
-
-.chat-sidebar{
-  width: 100%;
-}
-.top-bar{
-  position: absolute;
-top: 0;
-right: 0;
-}
-
-  .top-bar .menu-icon {
-    font-size: 25px;
-    cursor: pointer;
-  }
-
-  .search-bar-container {
-    margin-left: 10px;
-  }
-}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import EmojiPicker from "emoji-picker-react";
 import "./AccessForums.css";
 
@@ -173,13 +173,13 @@ const toggleSidebar = () => {
   {/* Top Bar (only on mobile) */}
   <div className="top-bar d-block d-sm-none">
     <div className="menu-icon" onClick={toggleSidebar}>
-      &#9776; {/* Hamburger icon */}
+     <FaArrowLeft/>
     </div>
-    <h5>Chat</h5>
+   
   </div>
 
   {/* Sidebar */}
-  <div className={`chat-sidebar p-3 ${sidebarVisible ? "show" : ""}`}>
+  <div onClick={toggleSidebar} className={`chat-sidebar p-3 ${sidebarVisible ? "show" : ""}`}>
     <h5 className="text-dark">Chat</h5>
     <div className="search-bar-container">
       <img src="src/Images/search.png" className="search-icon text-dark" alt="Search" />
@@ -192,7 +192,7 @@ const toggleSidebar = () => {
           className={`chat-item ${selectedChat.id === chat.id ? "active" : ""}`}
           onClick={() => handleChatClick(chat)}
         >
-          <img src={chat.avatar} alt={chat.name} className="avatar" />
+          <img src={chat.avatar} alt={chat.name} role="button" className="avatar" />
           <div className="chat-info">
             <h5>{chat.name}</h5>
             <p>{chat.lastMessage}</p>
@@ -208,7 +208,7 @@ const toggleSidebar = () => {
   </div>
 
   {/* Chat Window */}
-  <div className={`chat-window ${isMobile && sidebarVisible ? "expanded" : ""}`}>
+  <div className="chat-window  col-12  ">
     <div className="chat-header d-flex align-items-center">
       <div className="chat-info d-flex align-items-center">
         <img src={selectedChat.avatar} alt={selectedChat.name} className="avatar" />
@@ -217,9 +217,9 @@ const toggleSidebar = () => {
           <span>{selectedChat.time}</span>
         </div>
       </div>
-      <div className="chat-options d-flex gap-2 align-items-center justify-content-end">
-        <img src="src/Images/video.png" role="button" alt="Video Call" />
-        <img src="src/Images/call.png" role="button" alt="Audio Call" />
+      <div className="chat-options  d-flex gap-2 align-items-center justify-content-end">
+        <img src="src/Images/video.png" className="imginput" role="button" alt="Video Call" />
+        <img src="src/Images/call.png" className="imginput" role="button" alt="Audio Call" />
         <img
           src="src/Images/more.png"
           role="button"
