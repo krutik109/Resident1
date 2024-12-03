@@ -26,7 +26,7 @@ const ChatSidebar = ({ onContactClick }) => {
 
   return (
 
-    <div className="chat-sidebar-container bg-white ">
+    <div className="chat-sidebar-container  bg-white ">
       <div className="search-bar p-3  border-0">
         <div className="input-group rounded  overflow-hidden">
 
@@ -49,7 +49,7 @@ const ChatSidebar = ({ onContactClick }) => {
           filteredContacts.map((contact) => (
             <div
               key={contact.id}
-              className={`contact-item p-3 d-flex align-items-center ${contact.active ? 'bg-blue' : ''}`}
+              className={`contact-item  p-3 d-flex align-items-center ${contact.active ? 'bg-blue' : ''}`}
               style={{ cursor: 'pointer', borderBottom: '1px solid #f0f0f0' }}
               onClick={() => handleContactClick(contact)} // Handle contact click
             >

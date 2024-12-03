@@ -128,7 +128,8 @@
   }
   .scrollable-card {
     max-height: 400px; /* Set a maximum height for the scrollable sections */
-    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-y: auto;
+     /* Enables vertical scrolling */
   }
   .rounded-table {
     border-collapse: separate;

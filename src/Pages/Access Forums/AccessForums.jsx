@@ -274,8 +274,8 @@ const toggleSidebar = () => {
             <EmojiPicker onEmojiClick={handleEmojiClick} />
           </div>
         )}
-        <input
-          className="border-0"
+        <input 
+          className="border-0 msginput"
           type="text"
           placeholder="Type a message"
           value={newMessage}

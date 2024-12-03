@@ -136,8 +136,8 @@ const ComplaintSubmission = () => {
             {/* Complaint Cards */}
             <div className="row">
                 {complaints.map((complaint) => (
-                    <div className="col-md-3 mb-3" key={complaint.id}>
-                        <div className="card shadow-sm border-0 note-card bg-white">
+                    <div  className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4 mb-3" key={complaint.id}>
+                        <div style={{minHeight:"220px"}} className="card shadow-sm  note-card bg-white">
                             <div
                                 className="d-flex justify-content-between align-items-center p-2 rounded-top"
                                 style={{ backgroundColor: "#5678e9", color: "#fff" }} >
@@ -164,7 +164,7 @@ const ComplaintSubmission = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="card-body">
+                            <div className="card-body" >
                                 {/* Request Date */}
                                 <div className="d-flex justify-content-between mb-2">
                                     <span className="text-muted" style={{ fontSize: "12px" }}>
@@ -437,8 +437,8 @@ const RequestSubmission = () => {
             {/* Complaint Cards */}
             <div className="row">
                 {complaints.map((complaint) => (
-                    <div className="col-md-3 mb-3" key={complaint.id}>
-                        <div className="card shadow-sm border-0 note-card bg-white">
+                    <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4 mb-3" key={complaint.id}>
+                        <div style={{minHeight:"220px"}} className="card shadow-sm border-0 note-card bg-white">
                             <div
                                 className="d-flex justify-content-between align-items-center p-2 rounded-top"
                                 style={{ backgroundColor: "#5678e9", color: "#fff" }} >

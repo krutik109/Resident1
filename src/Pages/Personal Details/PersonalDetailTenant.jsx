@@ -239,7 +239,7 @@ function PersonalDetailTenant() {
             </div>
             <div className="row">
                 {notes.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div
@@ -288,7 +288,7 @@ function PersonalDetailTenant() {
             </div>
             <div className="row">
                 {Vehicle.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div
@@ -319,10 +319,10 @@ function PersonalDetailTenant() {
  {/*Show Maintenance Details*/}
           <div className="border rounded shadow bg-white mt-3 p-4">
             <div className="row align-items-center">
-            <div className="col text-start">
+            <div className="col-8 col-lg-6 col-sm-6 col-md-4 col-xl-8 text-start">
                    <h4>Show Maintenance Details</h4>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col-2  col-sm-3 col-xl-2  col-lg-3 col-md-4 mt-2">
                     <div className="balance-card balance-card-green">
                         <div className="balance-info">
                             <p className="mb-0 text-muted mt-3">Maintenance Amount</p>
@@ -330,7 +330,7 @@ function PersonalDetailTenant() {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3 ">
+                <div className="col-2  col-sm-3 col-xl-2  col-lg-3 col-md-4 mt-2 ">
                     <div className="balance-card balance-card-dangere">
                         <div className="balance-info">
                             <p className="mb-0 text-muted mt-3">Penalty Amount</p>
@@ -349,7 +349,7 @@ function PersonalDetailTenant() {
             </div>
             <div className="row">
                 {Maintenance.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div className="card-header d-flex justify-content-between align-items-center   text-white" style={{backgroundColor:"#5678e9"}}>
@@ -398,7 +398,7 @@ function PersonalDetailTenant() {
             </div>
             <div className="row">
                 {DMaintenance.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div className="card-header d-flex justify-content-between align-items-center   text-white" style={{backgroundColor:"#5678e9"}}>
@@ -442,7 +442,7 @@ function PersonalDetailTenant() {
             </div>
             <div className="row">
                 {Community.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div

@@ -164,7 +164,7 @@ function OtherIncomeInvoice() {
 
                             <div className="row">
                                 {DMaintenance.map((note) => (
-                                    <div className="col-md-3 mb-4">
+                                    <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                                         <div className="card shadow-sm border-0 note-card bg-white">
                                             {/* Card Header */}
                                             <div className="card-header d-flex justify-content-between align-items-center   text-white" style={{ backgroundColor: "#5678e9" }}>

@@ -24,6 +24,8 @@
 import React from 'react';
 import './Header.css';
 import { RxHamburgerMenu } from "react-icons/rx";
+import { IoMdClose } from 'react-icons/io';
+import { FaBars } from 'react-icons/fa';
 
 
 const Header = ({ toggleSidebar }) => {
@@ -43,6 +45,9 @@ const Header = ({ toggleSidebar }) => {
         </div>
         <div className="col-auto">
           <i className="bi bi-person-circle"></i> {/* User icon */}
+          {/* <button className="btn close-btn" onClick={toggleSidebar}>
+            <FaBars />
+          </button> */}
         </div>
       </div>
       <hr />

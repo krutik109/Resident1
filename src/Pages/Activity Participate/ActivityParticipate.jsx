@@ -69,9 +69,9 @@ const ActivityParticipaes = () => {
     >
       <div className="col-3 fw-bold text-start ">Participator Name</div>
       <div className="col-3 fw-bold text-center">Description</div>
-      <div className="col-2 fw-bold text-center">Event Time</div>
-      <div className="col-2 fw-bold text-center">Event Date</div>
-      <div className="col-2 fw-bold text-center">Event Name</div>
+      <div className="col-2 fw-bold text-center">Activity Time</div>
+      <div className="col-2 fw-bold text-center">Activity Date</div>
+      <div className="col-2 fw-bold text-center">Activity Name</div>
       
     </div>
 

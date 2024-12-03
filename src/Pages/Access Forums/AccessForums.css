@@ -250,6 +250,7 @@ background-color:#f6f8fb;
 
 .message-input input {
   flex: 1;
+
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;

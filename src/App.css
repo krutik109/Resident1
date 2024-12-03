@@ -97,5 +97,28 @@ ul li {
  
   background: linear-gradient(90deg, #fe512e 0%, #f09619 100%);
 }
+.note-card {
+  background-color: #f0f4ff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.note-card:hover {
+  transform: translateY(-5px);
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
 
+::-webkit-scrollbar-track {
+  background: #f4f4f4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202224;
+  border-radius: 10px;
+}
 /* Container */

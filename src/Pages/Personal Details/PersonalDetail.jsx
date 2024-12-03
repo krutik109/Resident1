@@ -137,77 +137,108 @@ function PersonalDetail() {
             </Link>
           </div>
 {/* Profile form */}
-          <div className="border rounded shadow bg-white  p-4">
-            <div className="row align-items-center">
-              {/* Left Side - Profile Image */}
-              <div className="col-lg-2 d-flex flex-column align-items-center">
-                <img
-                  src="src/Images/personalprofile.png"
-                  className="img-thumbnail rounded-circle mb-2"
-                  alt="Profile"
-                  style={{ width: "120px", height: "120px" }}
-                />
-              </div>
+<div className="border rounded shadow bg-white p-4">
+  <div className="row  align-items-center">
+    {/* Left Side - Profile Image */}
+    <div className="col-12 col-lg-2 d-flex flex-column align-items-center mb-3 mb-lg-0">
+      <img
+        src="src/Images/personalprofile.png"
+        className="img-thumbnail rounded-circle"
+        alt="Profile"
+        style={{ width: "120px", height: "120px" }}
+      />
+    </div>
 
-              {/* Right Side - Form Details */}
-              <div className="col-lg-7">
-                <div className="row mb-3">
-                  <div className="col-md-3">
-                    <h6 className="text-muted mb-1">Full Name</h6>
-                    <p className="text-secondary">Arlene McCoy</p>
-                  </div>
-                  <div className="col-md-3">
-                    <h6 className="text-muted mb-1">Phone Number</h6>
-                    <p className="text-secondary">+91 99130 44537</p>
-                  </div>
-                  <div className="col-md-4">
-                    <h6 className="text-muted mb-1">Email Address</h6>
-                    <p className="text-secondary">ArleneMcCoy25@gmail.com</p>
-                  </div>
-                  <div className="col-md-2">
-                    <h6 className="text-muted mb-1">Gender</h6>
-                    <p className="text-secondary">Male</p>
-                  </div>
-                </div>
+    {/* Right Side - Form Details */}
+    <div className="col-12 col-lg-7">
+  <div className="row">
+    {/* Full Name */}
+    <div className="col-12 col-sm-6 col-md-3 mb-3">
+      <h6 className="text-muted mb-1">Full Name</h6>
+      <p className="text-secondary">Arlene McCoy</p>
+    </div>
 
-                <div className="row mb-3">
-                  <div className="col-md-3">
-                    <h6 className="text-muted mb-1">Wing</h6>
-                    <p className="text-secondary">A</p>
-                  </div>
-                  <div className="col-md-3">
-                    <h6 className="text-muted mb-1">Age</h6>
-                    <p className="text-secondary">20</p>
-                  </div>
-                  <div className="col-md-4">
-                    <h6 className="text-muted mb-1">Unit</h6>
-                    <p className="text-secondary">1001</p>
-                  </div>
-                  <div className="col-md-2">
-                    <h6 className="text-muted mb-1">Relation</h6>
-                    <p className="text-secondary">Father</p>
-                  </div>
-                </div>
-              </div>
-              {/* File Attachments */}
-              <div className="col-lg-3">
-                <div className="border rounded p-2 mb-2 d-flex">
-                 <img src="src\Images\image2.png" alt="" />
-                  <div>
-                    <p style={{fontSize:"12px"}}>Syncfusion Adharcard Front Side.JPG</p>
-                    <span className="text-secondary" style={{fontSize:"12px"}}>3.5 MB</span>
-                  </div>
-                </div>
-                <div className="border rounded p-2 mb-2 d-flex">
-                 <img src="src\Images\image2.png" alt="" />
-                  <div>
-                    <p style={{fontSize:"12px"}}>Address Proof Front Side.PDF</p>
-                    <span className="text-secondary" style={{fontSize:"12px"}}>3.5 MB</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Phone Number */}
+    <div className="col-12 col-sm-6 col-md-3 mb-3">
+      <h6 className="text-muted mb-1">Phone Number</h6>
+      <p className="text-secondary">+91 99130 44537</p>
+    </div>
+
+    {/* Email Address */}
+    <div className="col-12 col-md-4 mb-3">
+      <h6 className="text-muted mb-1">Email Address</h6>
+      <p className="text-secondary">ArleneMcCoy25@gmail.com</p>
+    </div>
+
+    {/* Gender */}
+    <div className="col-12 col-sm-6 col-md-2 mb-3">
+      <h6 className="text-muted mb-1">Gender</h6>
+      <p className="text-secondary">Male</p>
+    </div>
+
+    {/* Wing */}
+    <div className="col-12 col-sm-6 col-md-3 mb-3">
+      <h6 className="text-muted mb-1">Wing</h6>
+      <p className="text-secondary">A</p>
+    </div>
+
+    {/* Age */}
+    <div className="col-12 col-sm-6 col-md-3 mb-3">
+      <h6 className="text-muted mb-1">Age</h6>
+      <p className="text-secondary">20</p>
+    </div>
+
+    {/* Unit */}
+    <div className="col-12 col-sm-6 col-md-4 mb-3">
+      <h6 className="text-muted mb-1">Unit</h6>
+      <p className="text-secondary">1001</p>
+    </div>
+
+    {/* Relation */}
+    <div className="col-12 col-sm-6 col-md-2 mb-3">
+      <h6 className="text-muted mb-1">Relation</h6>
+      <p className="text-secondary">Father</p>
+    </div>
+  </div>
+</div>
+
+
+    {/* File Attachments */}
+    <div className="col-12 col-lg-3">
+      <div className="border rounded p-2 mb-2 d-flex align-items-center">
+        <img
+          src="src/Images/image2.png"
+          alt=""
+          style={{ width: "40px", height: "40px", marginRight: "10px" }}
+        />
+        <div>
+          <p style={{ fontSize: "12px", marginBottom: "2px" }}>
+            Syncfusion Adharcard Front Side.JPG
+          </p>
+          <span className="text-secondary" style={{ fontSize: "12px" }}>
+            3.5 MB
+          </span>
+        </div>
+      </div>
+      <div className="border rounded p-2 mb-2 d-flex align-items-center">
+        <img
+          src="src/Images/image2.png"
+          alt=""
+          style={{ width: "40px", height: "40px", marginRight: "10px" }}
+        />
+        <div>
+          <p style={{ fontSize: "12px", marginBottom: "2px" }}>
+            Address Proof Front Side.PDF
+          </p>
+          <span className="text-secondary" style={{ fontSize: "12px" }}>
+            3.5 MB
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
  {/* Member : (04) start */}
           <div className="border rounded shadow bg-white mt-3 p-4">
             <div className="row align-items-center">
@@ -216,7 +247,7 @@ function PersonalDetail() {
             </div>
             <div className="row">
                 {notes.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div
@@ -265,7 +296,7 @@ function PersonalDetail() {
             </div>
             <div className="row">
                 {Vehicle.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div
@@ -294,20 +325,22 @@ function PersonalDetail() {
             </div>
           </div>
  {/*Show Maintenance Details*/}
-          <div className="border rounded shadow bg-white mt-3 p-4">
-            <div className="row align-items-center">
-            <div className="col text-start">
-                   <h4>Show Maintenance Details</h4>
+          <div className=" rounded shadow bg-white mt-3 p-4">
+            <div className="row  d-flex align-items-center">
+               <div className="col-8 col-lg-6 col-sm-6 col-md-4 col-xl-8 text-start">
+                   <h4 className="">Show Maintenance Details</h4>
                 </div>
-                <div className="col-6 col-md-3">
+
+                <div className="col-2  col-sm-3 col-xl-2  col-lg-3 col-md-4 mt-2">
                     <div className="balance-card balance-card-green">
                         <div className="balance-info">
                             <p className="mb-0 text-muted mt-3">Maintenance Amount</p>
-                            <p className="balance-amount text-success">₹ 1,500</p>
+                            <p className="balance-amount text-success ">₹ 1,500</p>
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3 ">
+
+                <div className="col-2  col-sm-3 col-xl-2 col-lg-3  col-md-4 mt-2">
                     <div className="balance-card balance-card-dangere">
                         <div className="balance-info">
                             <p className="mb-0 text-muted mt-3">Penalty Amount</p>
@@ -326,7 +359,7 @@ function PersonalDetail() {
             </div>
             <div className="row">
                 {Maintenance.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-3 col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div className="card-header d-flex justify-content-between align-items-center   text-white" style={{backgroundColor:"#5678e9"}}>
@@ -375,7 +408,7 @@ function PersonalDetail() {
             </div>
             <div className="row">
                 {DMaintenance.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div className="card-header d-flex justify-content-between align-items-center   text-white" style={{backgroundColor:"#5678e9"}}>
@@ -419,7 +452,7 @@ function PersonalDetail() {
             </div>
             <div className="row">
                 {Community.map((note) => (
-                      <div className="col-md-3 mb-4">
+                      <div className="col-md-4 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                       <div className="card shadow-sm border-0 note-card bg-white">
                           {/* Card Header */}
                           <div
