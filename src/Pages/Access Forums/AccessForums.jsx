@@ -208,7 +208,7 @@ const toggleSidebar = () => {
   </div>
 
   {/* Chat Window */}
-  <div className="chat-window  col-12  ">
+  <div className="chat-window expanded  col-12  ">
     <div className="chat-header d-flex align-items-center">
       <div className="chat-info d-flex align-items-center">
         <img src={selectedChat.avatar} alt={selectedChat.name} className="avatar" />
@@ -245,21 +245,27 @@ const toggleSidebar = () => {
 
     {/* Chat Messages */}
     <div className="messages">
-      {selectedChat.messages.map((msg, index) => (
-        <div key={index} className={`message ${msg.sender === "You" ? "sent" : "received"}`}>
-          {msg.isImage ? (
-            <img src={msg.fileURL} alt="Uploaded" className="chat-image" />
-          ) : msg.fileURL ? (
-            <a href={msg.fileURL} download={msg.text}>
-              {msg.text}
-            </a>
-          ) : (
-            <p>{msg.text}</p>
-          )}
-          <span className="time">{msg.time}</span>
-        </div>
-      ))}
+  {selectedChat.messages.map((msg, index) => (
+    <div key={index} className={`message ${msg.sender === "You" ? "sent" : "received"}`}>
+      {msg.isImage ? (
+        <img src={msg.fileURL} alt="Uploaded" className="chat-image" />
+      ) : msg.audio ? ( // Check if the message contains an audio URL
+        <audio controls>
+          <source src={msg.audio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      ) : msg.fileURL ? (
+        <a href={msg.fileURL} download={msg.text}>
+          {msg.text}
+        </a>
+      ) : (
+        <p>{msg.text}</p>
+      )}
+      <span className="time">{msg.time}</span>
     </div>
+  ))}
+</div>
+
 
     {/* Message Input */}
     <div className="bg-white d-flex align-items-center">

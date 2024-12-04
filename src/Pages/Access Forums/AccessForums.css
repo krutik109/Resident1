@@ -68,7 +68,7 @@ top:160px;
 
   border-radius: 60px;
 border: none;
-max-width: 95%;
+width: 95%;
   font-size: 16px;
   box-sizing: border-box;
   height: 50px; /* Fix input height */
@@ -246,6 +246,7 @@ background-color:#f6f8fb;
   border-top: 1px solid #ddd;
   background: #fff;
   padding: 10px;
+ 
 }
 
 .message-input input {
@@ -257,43 +258,48 @@ background-color:#f6f8fb;
 }
 
 
+@media (max-width: 768px) {
+  .chat-sidebar {
+    width: 100%;
 
-@media (min-width: 350px) and (max-width: 768px) {
- .chat-sidebar{
-  position: absolute;
-  max-width: 100%;
-
- }
- .chat-app img{
-width: 34px;
- }
- .menu-icon{
-  position: absolute;
+   /* Hide sidebar by default on mobile */
+  }
   
-}
-.chat-app img{
 
-  width: 20px;
-}
-.avatar{
-  display: block;
-}
-  /* .chat-app{
-    position: relative;
-    padding: 0;
-   
+  .chat-sidebar.hidden {
+    display: block; /* Shown when no chat is selected */
+  .chat-sidebar.show {
+    display: block; /* Show sidebar when 'show' class is added */
   }
 
-  .chat-options img
-  {
-    display: none;
-
-  }
-  .imginput{
-    display: none;
+  .chat-window.expanded {
+    width: 100%;
+    width: 90%;
     
-  } */
-
+  }
+  .chat-header .avatar {
+    display: none; /* Hide avatar on mobile */
+  }
+  .chat-header h5 {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  .chat-header {
+    border-radius: 0;
+  }
+.chat-sidebar{
+  width: 100%;
 }
-
-/* Additional styles for mobile responsiveness */
+.top-bar{
+  position: absolute;
+top: 0;
+right: 0;
+}
+  .top-bar .menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .search-bar-container {
+    margin-left: 10px;
+  }
+  }}

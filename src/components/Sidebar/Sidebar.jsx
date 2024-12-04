@@ -49,30 +49,30 @@ const Sidebar = ({ toggleSidebar }) => {
 
           <NavLink  className="text-decoration-none font_color"  to="/" onClick={toggleSidebar}>
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto background_color sidebar_link  p-3">
-            <p><MdDashboard className='me-2 fs-4 font_color' /> Dashboard</p>
+            <p className='font_color'><MdDashboard className='me-2 fs-4 ' /> Dashboard</p>
         </div>
           </NavLink>
 
           <NavLink className="text-decoration-none font_color" to="/personaldetail" onClick={toggleSidebar}>
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto p-3">
-            <p ><img className='me-2 fs-4' src="src/Images/personalcard.png" alt="" />
+            <p className='font_color' ><img className='me-2 fs-4' src="src/Images/personalcard.png" alt="" />
             Personal Details</p>
         </div>
           </NavLink>
           <NavLink className="text-decoration-none font_color" to="/serviceandcomplaint" onClick={toggleSidebar}>
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto p-3">
-            <p ><img className='me-2 fs-4' src="src/Images/servicecomplain.png" alt="" />Service And Complaint</p>
+            <p  className='font_color' ><img className='me-2 fs-4' src="src/Images/servicecomplain.png" alt="" />Service And Complaint</p>
         </div>
           </NavLink>
           <NavLink className="text-decoration-none font_color" to="/eventparticipation" onClick={toggleSidebar}>
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto p-3">
-            <p ><img className='me-2 fs-4' src="src/Images/event.png" alt="" />Event Participation</p>
+            <p  className='font_color' ><img className='me-2 fs-4' src="src/Images/event.png" alt="" />Event Participation</p>
         </div>
           </NavLink>
    
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto financial_management_main p-3">
           <div onClick={toggleSecurityDropdown} style={{ cursor: 'pointer' }}>
-            <p style={{ cursor: 'pointer', fontSize: '14px', fontWeight: '500' }}  className='ms-2 font_color f'><img className='me-2 fs-4' src="src/Images/comunity.png" alt="" /> Comunity</p>
+            <p style={{ cursor: 'pointer', fontSize: '14px', fontWeight: '500' }}  className='ms-2 font_color '><img className='me-2 fs-4' src="src/Images/comunity.png" alt="" /> Comunity</p>
           </div>
           {/* Dropdown for security Management */}
           <Collapse in={isSecurityOpen} className='dropdown-main '>
@@ -81,7 +81,7 @@ const Sidebar = ({ toggleSidebar }) => {
                 <p className="p-3 sub-link">Access Forums</p>
               </NavLink>
               <NavLink  className="text-decoration-none font_color" to="/pollapp" onClick={toggleSidebar}>
-                <p className="p-3 sub-link">Polls</p>
+                <p className="p-3 sub-link  font_color">Polls</p>
               </NavLink>
               {/* <NavLink className="text-decoration-none font_color" to="/Communication" onClick={toggleSidebar}>
                 <p className="p-3 sub-link">Communication Discussion</p>
@@ -117,7 +117,7 @@ const Sidebar = ({ toggleSidebar }) => {
 
         <div className="col-md-11 mt-2 mb-2 sidebar_link mx-auto p-3">
           <NavLink className="text-decoration-none font_color" to="/securityprotocols" onClick={toggleSidebar}>
-            <p className='ms-2'><GrAnnounce className='me-2 fs-4 font_color' /> Seurity Protocol</p>
+            <p className='ms-2 font_color'><GrAnnounce className='me-2 fs-4 font_color' /> Seurity Protocol</p>
           </NavLink>
         </div>
       </div>
